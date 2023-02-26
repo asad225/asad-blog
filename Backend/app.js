@@ -14,7 +14,7 @@ app.use("/api/user", router);
 app.use("/api/blog", blogRouter);
 
 
-// const port = process.env.PORT || 4000
+const port = process.env.PORT || 4000
 
 // if(process.env.NODE_ENV==='production'){
 //   app.use(express.static(path.join(__dirname,'../Frontend/build')))
@@ -27,7 +27,7 @@ mongoose
   .connect(
     process.env.MONGO_DB
   )
-  .then(() => app.listen(4000))
+  .then(() => app.listen(port))
   .then(() =>
     console.log("Connected TO Database and Listening TO Localhost 4000")
   )

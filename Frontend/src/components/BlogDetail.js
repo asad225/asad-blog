@@ -9,7 +9,6 @@ const BlogDetail = () => {
   const navigate = useNavigate();
   const [blog, setBlog] = useState();
   const id = useParams().id;
-  console.log(id);
   const [inputs, setInputs] = useState({});
   const handleChange = (e) => {
     setInputs((prevState) => ({
@@ -19,7 +18,7 @@ const BlogDetail = () => {
   };
   const fetchDetails = async () => {
     const res = await axios
-      .get(`http://localhost:4000/api/blog/${id}`)
+      .get(`${process.env.REACT_APP_API}/api/blog/${id}`)
       .catch((err) => console.log(err));
     const data = await res.data;
     return data;
@@ -35,7 +34,7 @@ const BlogDetail = () => {
   }, [id]);
   const sendRequest = async () => {
     const res = await axios
-      .put(`http://localhost:5000/api/blog/update/${id}`, {
+      .put(`${process.env.REACT_APP_API}/api/blog/update/${id}`, {
         title: inputs.title,
         description: inputs.description,
       })

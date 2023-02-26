@@ -22,7 +22,7 @@ const Auth = () => {
   };
   const sendRequest = async (type = "login") => {
     const res = await axios
-      .post(`http://localhost:4000/api/user/${type}`, {
+      .post(`${process.env.REACT_APP_API}/api/user/${type}`, {
         name: inputs.name,
         email: inputs.email,
         password: inputs.password,
@@ -30,7 +30,6 @@ const Auth = () => {
       .catch((err) => console.log(err));
 
     const data = await res.data;
-    console.log(data);
     return data;
   };
 
