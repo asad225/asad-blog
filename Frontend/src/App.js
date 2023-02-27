@@ -26,11 +26,11 @@ function App() {
       </header>
       <main>
         <Routes>
+          <Route path="/" element={<Blogs />} />
           {!isLoggedIn ? (
             <Route path="/auth" element={<Auth />} />
           ) : (
             <>
-              <Route path="/" element={<Blogs />} />
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/blogs/add" element={<AddBlog />} />
               <Route path="/myBlogs" element={<UserBlogs />} />

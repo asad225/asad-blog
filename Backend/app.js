@@ -8,11 +8,13 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/user", router);
 app.use("/api/blog", blogRouter);
+
+port = process.env.PORT || 4000
 mongoose
   .connect(
     "mongodb+srv://asadrahman225:354tag354@cluster0.hzt6joy.mongodb.net/test"
   )
-  .then(() => app.listen(4000))
+  .then(() => app.listen(port))
   .then(() =>
     console.log("Connected TO Database and Listening TO Localhost 4000")
   )

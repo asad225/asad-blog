@@ -21,7 +21,7 @@ const AddBlog = () => {
   };
   const sendRequest = async () => {
     const res = await axios
-      .post("http://localhost:4000/api/blog/add", {
+      .post(`${process.env.REACT_APP_API}/api/blog/add`, {
         title: inputs.title,
         description: inputs.description,
         image: inputs.imageURL,
